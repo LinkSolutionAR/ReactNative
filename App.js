@@ -1,21 +1,79 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { Button, View } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { NavigationContainer } from "@react-navigation/native";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-export default function App() {
+function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Ionicons
+        reverse
+        name="ios-home"
+        type="ionicon"
+        color="#517fa4"
+        size={100}
+      />
+      <Button
+        onPress={() => navigation.navigate("Notifications")}
+        title="Go to notifications"
+      />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function NotificationsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Ionicons
+        reverse
+        name="ios-american-football"
+        type="ionicon"
+        color="#517fa4"
+        size={30}
+      />
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
+    </View>
+  );
+}
+
+const Drawer = createDrawerNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            drawerIcon: (config) => (
+              <Ionicons
+                reverse
+                name="ios-home"
+                type="ionicon"
+                color="#517fa4"
+                size={30}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Notifications"
+          component={NotificationsScreen}
+          options={{
+            drawerIcon: (config) => (
+              <Ionicons
+                reverse
+                name="ios-create"
+                type="ionicon"
+                color="#517fa4"
+                size={30}
+              />
+            ),
+          }}
+        />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
