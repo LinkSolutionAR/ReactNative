@@ -3,15 +3,29 @@
 import "react-native-gesture-handler";
 
 import * as React from "react";
-import { Button, View, Text, TouchableOpacity, Image } from "react-native";
+import {
+  Button,
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  Animated,
+  StyleSheet,
+} from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import HomeScreen from "./pages/HomeScreen";
+import InicioScreen from "./pages/InicioScreen";
 import MiPerfilScreen from "./pages/MiPerfilScreen";
-import MiPropiedad from "./pages/MiPropiedad";
+import MiPropiedadScreen from "./pages/MiPropiedadScreen";
+import VisitasScreen from "./pages/VisitasScreen";
+import AyudaScreen from "./pages/AyudaScreen";
+import ReservasScreen from "./pages/ReservasScreen";
+import EscanearQRScreen from "./pages/EscanearQRScreen";
+import MapaScreen from "./pages/MapaScreen";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -36,14 +50,14 @@ const NavigationDrawerStructure = (props) => {
   );
 };
 
-function firstScreenStack({ navigation }) {
+function HomeScreenStack({ navigation }) {
   return (
-    <Stack.Navigator initialRouteName="HomeScreen">
+    <Stack.Navigator initialRouteName="InicioScreen">
       <Stack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="InicioScreen"
+        component={InicioScreen}
         options={{
-          title: "First Page", //Set Header Title
+          title: "Home", //Set Header Title
           headerLeft: () => (
             <NavigationDrawerStructure navigationProps={navigation} />
           ),
@@ -60,7 +74,7 @@ function firstScreenStack({ navigation }) {
   );
 }
 
-function secondScreenStack({ navigation }) {
+function MiPerfilScreenStack({ navigation }) {
   return (
     <Stack.Navigator
       initialRouteName="MiPerfilScreen"
@@ -81,16 +95,160 @@ function secondScreenStack({ navigation }) {
         name="MiPerfilScreen"
         component={MiPerfilScreen}
         options={{
-          title: "Second Page", //Set Header Title
+          title: "Mi Perfil", //Set Header Title
         }}
       />
       {/* <Stack.Screen
-        name="MiPropiedad"
-        component={MiPropiedad}
+        name="MiPropiedadScreen"
+        component={MiPropiedadScreen}
         options={{
           title: "Third Page", //Set Header Title
         }}
       /> */}
+    </Stack.Navigator>
+  );
+}
+
+function MiPropiedadScreenStack({ navigation }) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="MiPropiedadScreen"
+        component={MiPropiedadScreen}
+        options={{
+          title: "Mi Propiedad", //Set Header Title
+          headerLeft: () => (
+            <NavigationDrawerStructure navigationProps={navigation} />
+          ),
+          headerStyle: {
+            backgroundColor: "#f4511e", //Set Header color
+          },
+          headerTintColor: "#fff", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function VisitasScreenStack({ navigation }) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="VisitasScreen"
+        component={VisitasScreen}
+        options={{
+          title: "Visitas", //Set Header Title
+          headerLeft: () => (
+            <NavigationDrawerStructure navigationProps={navigation} />
+          ),
+          headerStyle: {
+            backgroundColor: "#f4511e", //Set Header color
+          },
+          headerTintColor: "#fff", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function ReservasScreenStack({ navigation }) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="ReservasScreen"
+        component={ReservasScreen}
+        options={{
+          title: "Reservas", //Set Header Title
+          headerLeft: () => (
+            <NavigationDrawerStructure navigationProps={navigation} />
+          ),
+          headerStyle: {
+            backgroundColor: "#f4511e", //Set Header color
+          },
+          headerTintColor: "#fff", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function EscanearQRScreenStack({ navigation }) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="EscanearQRScreen"
+        component={EscanearQRScreen}
+        options={{
+          title: "Escanear QR", //Set Header Title
+          headerLeft: () => (
+            <NavigationDrawerStructure navigationProps={navigation} />
+          ),
+          headerStyle: {
+            backgroundColor: "#f4511e", //Set Header color
+          },
+          headerTintColor: "#fff", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function AyudaScreenStack({ navigation }) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="AyudaScreen"
+        component={AyudaScreen}
+        options={{
+          title: "Ayuda", //Set Header Title
+          headerLeft: () => (
+            <NavigationDrawerStructure navigationProps={navigation} />
+          ),
+          headerStyle: {
+            backgroundColor: "#f4511e", //Set Header color
+          },
+          headerTintColor: "#fff", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function MapaScreenStack({ navigation }) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="MapaScreen"
+        component={MapaScreen}
+        options={{
+          title: "Mapa", //Set Header Title
+          headerLeft: () => (
+            <NavigationDrawerStructure navigationProps={navigation} />
+          ),
+          headerStyle: {
+            backgroundColor: "#f4511e", //Set Header color
+          },
+          headerTintColor: "#fff", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
     </Stack.Navigator>
   );
 }
@@ -105,23 +263,92 @@ function App() {
         }}
       >
         <Drawer.Screen
-          name="HomeScreen"
-          options={{ drawerLabel: "First page Option" }}
-          component={firstScreenStack}
+          name="Inicio"
+          options={{
+            drawerIcon: (config) => (
+              <Ionicons reverse name="md-globe" color="#517fa4" size={25} />
+            ),
+          }}
+          component={HomeScreenStack}
         />
         <Drawer.Screen
-          name="MiPerfilScreen"
-          options={{ drawerLabel: "Second page Option" }}
-          component={secondScreenStack}
+          name="Mi Perfil"
+          options={{
+            drawerIcon: (config) => (
+              <Ionicons reverse name="md-person" color="#517fa4" size={25} />
+            ),
+          }}
+          component={MiPerfilScreenStack}
         />
         <Drawer.Screen
-          name="MiPropiedad"
-          options={{ drawerLabel: "Third Page Option" }}
-          component={MiPropiedad}
+          name="Mi Propiedad"
+          options={{
+            drawerIcon: (config) => (
+              <Ionicons reverse name="ios-home" color="#517fa4" size={25} />
+            ),
+          }}
+          component={MiPropiedadScreenStack}
+        />
+        <Drawer.Screen
+          name="Visitas"
+          options={{
+            drawerIcon: (config) => (
+              <Ionicons reverse name="ios-people" color="#517fa4" size={25} />
+            ),
+          }}
+          component={VisitasScreenStack}
+        />
+        <Drawer.Screen
+          name="Reservas"
+          options={{
+            drawerIcon: (config) => (
+              <Ionicons reverse name="ios-paper" color="#517fa4" size={25} />
+            ),
+          }}
+          component={ReservasScreenStack}
+        />
+        <Drawer.Screen
+          name="Escanear QR"
+          options={{
+            drawerIcon: (config) => (
+              <Ionicons reverse name="md-barcode" color="#517fa4" size={25} />
+            ),
+          }}
+          component={EscanearQRScreenStack}
+        />
+        <Drawer.Screen
+          name="Ayuda"
+          options={{
+            drawerIcon: (config) => (
+              <Ionicons
+                reverse
+                name="md-information-circle"
+                color="#517fa4"
+                size={25}
+              />
+            ),
+          }}
+          component={AyudaScreenStack}
+        />
+        <Drawer.Screen
+          name="Mapa"
+          options={{
+            drawerIcon: (config) => (
+              <Ionicons reverse name="md-map" color="#517fa4" size={25} />
+            ),
+          }}
+          component={MapaScreenStack}
         />
       </Drawer.Navigator>
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+});
 
 export default App;

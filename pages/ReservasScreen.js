@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Button, View, Text, SafeAreaView } from "react-native";
 
-const HomeScreen = ({ navigation }) => {
+const ReservasScreen = ({ route, navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, padding: 16 }}>
@@ -21,16 +21,8 @@ const HomeScreen = ({ navigation }) => {
               marginBottom: 16,
             }}
           >
-            This is the First Page under First Page Option
+            Reservas
           </Text>
-          <Button
-            onPress={() => navigation.navigate("MiPerfilScreen")}
-            title="Go to Second Page"
-          />
-          <Button
-            onPress={() => navigation.navigate("MiPropiedad")}
-            title="Go to Third Page"
-          />
         </View>
         <Text style={{ fontSize: 18, textAlign: "center", color: "grey" }}>
           React Navigate Drawer
@@ -43,4 +35,4 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
-export default HomeScreen;
+export default ReservasScreen;

@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Button, View, Text, SafeAreaView } from "react-native";
 
-const MiPropiedad = ({ route, navigation }) => {
+const AyudaScreen = ({ route, navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, padding: 16 }}>
@@ -21,16 +21,8 @@ const MiPropiedad = ({ route, navigation }) => {
               marginBottom: 16,
             }}
           >
-            This is Third Page under Second Page Option
+            Ayuda!
           </Text>
-          <Button
-            onPress={() => navigation.navigate("HomeScreen")}
-            title="Go to First Page"
-          />
-          <Button
-            onPress={() => navigation.navigate("MiPerfilScreen")}
-            title="Go to Second Page"
-          />
         </View>
         <Text style={{ fontSize: 18, textAlign: "center", color: "grey" }}>
           React Navigate Drawer
@@ -43,4 +35,4 @@ const MiPropiedad = ({ route, navigation }) => {
   );
 };
 
-export default MiPropiedad;
+export default AyudaScreen;
