@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Button, View, Text, SafeAreaView } from "react-native";
 
-const MiPerfilScreen = ({ navigation }) => {
+const VisitasScreen = ({ route, navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, padding: 16 }}>
@@ -21,12 +21,18 @@ const MiPerfilScreen = ({ navigation }) => {
               marginBottom: 16,
             }}
           >
-            Mi Perfil
+            Visitas
           </Text>
         </View>
+        <Text style={{ fontSize: 18, textAlign: "center", color: "grey" }}>
+          React Navigate Drawer
+        </Text>
+        <Text style={{ fontSize: 16, textAlign: "center", color: "grey" }}>
+          www.aboutreact.com
+        </Text>
       </View>
     </SafeAreaView>
   );
 };
 
-export default MiPerfilScreen;
+export default VisitasScreen;
