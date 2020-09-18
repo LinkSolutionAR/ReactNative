@@ -60,6 +60,10 @@ const SignUpScreen = ({ navigation }) => {
     });
   };
 
+  const loginHandle = (username, password) => {
+    signIn(username, password);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -111,7 +115,7 @@ const SignUpScreen = ({ navigation }) => {
             style={styles.signIn}
             title="Sign In"
             onPress={() => {
-              signIn();
+              loginHandle(data.email, data.password);
             }}
             color="#009387"
           />
