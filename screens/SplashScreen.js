@@ -8,13 +8,14 @@ import {
   StyleSheet,
   StatusBar,
   Alert,
-  Button,
   Dimensions,
   Image,
+  Icon,
 } from "react-native";
 
 import * as Animatable from "react-native-animatable";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import { IconButton, Button } from "react-native-paper";
 
 const SplashScreen = ({ navigation }) => {
   return (
@@ -30,15 +31,20 @@ const SplashScreen = ({ navigation }) => {
         />
       </View>
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
-        <Text style={styles.title}> Stay connected with everyone</Text>
-        <Text style={styles.text}> Sign in with account</Text>
+        <Text style={styles.title}>¡Tu KeyWallet!</Text>
+        <Text style={styles.text}>
+          Inicia sesion para administrar tus contraseñas
+        </Text>
         <View style={styles.button}>
           <Button
+            icon="check"
             style={styles.signIn}
-            title="Get started"
+            color="#fff"
+            size={20}
             onPress={() => navigation.navigate("SignInScreen")}
-            color="#009387"
-          />
+          >
+            Empezar
+          </Button>
         </View>
       </Animatable.View>
     </View>
@@ -92,6 +98,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 50,
     flexDirection: "row",
+    color: "#fff",
+    backgroundColor: "#009387",
   },
   textSign: {
     color: "white",

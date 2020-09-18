@@ -38,7 +38,7 @@ export function DrawerContent(props) {
                 size={50}
               />
               <View style={{ marginLeft: 15, flexDirection: "column" }}>
-                <Title style={styles.title}></Title>
+                <Title style={styles.title}>Santiago Semhan</Title>
                 <Caption style={styles.caption}>SOPORTE IT</Caption>
               </View>
             </View>

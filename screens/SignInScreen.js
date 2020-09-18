@@ -8,12 +8,13 @@ import {
   StyleSheet,
   StatusBar,
   Alert,
-  Button,
 } from "react-native";
 
 import * as Animatable from "react-native-animatable";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
+
+import { IconButton, Button } from "react-native-paper";
 
 import contsGlobal from "../constGlobal";
 import { LinearGradient } from "react-native-svg";
@@ -68,7 +69,7 @@ const SignUpScreen = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Animatable.Text style={styles.text_header} animation="zoomIn">
-          Welcome!
+          Bienvenido!
         </Animatable.Text>
       </View>
       <Animatable.View
@@ -76,11 +77,11 @@ const SignUpScreen = ({ navigation }) => {
         duraton="1500"
         style={styles.footer}
       >
-        <Text style={styles.text_footer}>Email</Text>
+        <Text style={styles.text_footer}>Usuario</Text>
         <View style={styles.action}>
           <FontAwesome name="user-o" color="#05375a" size={20} />
           <TextInput
-            placeholder="Your Email"
+            placeholder="Ingrese su usuario..."
             style={styles.textInput}
             autoCapitalize="none"
             onChangeText={(val) => textInputChange(val)}
@@ -95,7 +96,7 @@ const SignUpScreen = ({ navigation }) => {
         <View style={styles.action}>
           <Feather name="lock" color="#05375a" size={20} />
           <TextInput
-            placeholder="Your Password"
+            placeholder="Ingrese su contraseña..."
             secureTextEntry={data.secureTextEntry ? true : false}
             style={styles.textInput}
             autoCapitalize="none"
@@ -112,13 +113,24 @@ const SignUpScreen = ({ navigation }) => {
         </View>
         <View style={styles.button}>
           <Button
-            style={styles.signIn}
-            title="Sign In"
+            style={{
+              width: 200,
+              height: 40,
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: 50,
+              flexDirection: "row",
+              color: "#fff",
+              backgroundColor: "#009387",
+            }}
+            color="#fff"
+            size={20}
             onPress={() => {
               loginHandle(data.email, data.password);
             }}
-            color="#009387"
-          />
+          >
+            Iniciar Sesion!
+          </Button>
         </View>
       </Animatable.View>
     </View>
